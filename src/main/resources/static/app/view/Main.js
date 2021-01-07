@@ -1,10 +1,42 @@
 Ext.define("SL.view.Main",{
     extend:"Ext.grid.Panel",
     title:"TodoItemGrid",
+    controller:{
+        xclass:"SL.view.MainController"
+    },
     viewModel:{
         xclass:"SL.view.MainViewModel"
     },
     bind:"{todoItems}",
+
+    tbar:[{
+        xtype:"form",
+        layout:"hbox",
+        margin:30,
+        padding:30,
+        border:false,
+        defaults:{
+            labelAlign: "right"
+        },
+        items:[{
+            xtype:"textfield",
+            fieldLabel:"Name",
+
+            width:300,
+        },{
+            xtype: "datefield",
+            fieldLabel: "Date",
+            width: 300,
+        },{
+            xtype: "checkbox",
+            fieldLabel: "isDode"
+        },{
+            xtype: "button",
+            width:120,
+            margin:"0 0 0 30",
+            text:"addCompany",
+        }]
+    }],
     columns:[{
         text:"ID",
         dataIndex:"itemId",
@@ -32,7 +64,7 @@ Ext.define("SL.view.Main",{
         text:"edit",
         width:200,
         items:[{
-            iconCls: 'x-fa fa-cog',
+            iconCls: 'fa fa-cog',
             tooltip: 'EditItem',
             handler:"editItem"
         }]
