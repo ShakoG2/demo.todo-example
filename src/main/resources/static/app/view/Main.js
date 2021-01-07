@@ -21,7 +21,6 @@ Ext.define("SL.view.Main",{
         items:[{
             xtype:"textfield",
             fieldLabel:"Name",
-
             width:300,
         },{
             xtype: "datefield",
@@ -51,9 +50,12 @@ Ext.define("SL.view.Main",{
         dataIndex: "createdAt",
         width:300
     },{
+        xtype: "checkcolumn",
+        text:"check"
+    },{
         xtype: 'actioncolumn',
         text:"deleteItem",
-        width:200,
+        width:130,
         items: [{
             iconCls: 'fa fa-trash-o',
             tooltip: 'delete',

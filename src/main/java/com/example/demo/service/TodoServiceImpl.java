@@ -22,7 +22,7 @@ public  class TodoServiceImpl implements TodoService {
 
     @Override
     public TodoModel get(long id) {
-        String msg = String.format("Customer with id: %d Not Found", id);
+        String msg = String.format("TodoItem with id: %d Not Found", id);
         return todoRepository.findById(id).orElseThrow(() -> new TodoException(msg));
     }
     @Override
@@ -36,9 +36,9 @@ public  class TodoServiceImpl implements TodoService {
     @Override
     public boolean delete(long id){
         TodoModel todoModel=todoRepository.findById(id).orElse(null);
-        if (todoModel!=null) {
+        if (todoModel.getIsDone()!=false) {
             todoRepository.delete(todoModel);
-            return true;
+//            return true;
         }
         return false;
     }

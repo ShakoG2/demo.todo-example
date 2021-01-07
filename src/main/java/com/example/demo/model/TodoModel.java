@@ -25,10 +25,10 @@ public class TodoModel {
     private String Name;
 
     @Column(name="Done",nullable = false)
-    private Boolean isDone = false;
+    private Boolean IsDone = false;
 
     @Column(name="Date")
     @JsonFormat(pattern="yyyy-MM-dd")
-    private Date createdAt = new Date();
+    private Date CreatedAt = new Date();
 
 }

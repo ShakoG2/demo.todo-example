@@ -30,6 +30,7 @@ public class TodoController {
     public TodoModel getTodoitem( @PathVariable long id){
         return todoService.get(id);
     }
+
     @PutMapping("{id}")
     public TodoModel updateTodoitem(@PathVariable long id,@RequestBody TodoModel unsafeTodoModel){
         TodoModel todoitem=todoService.get(id);
@@ -37,7 +38,6 @@ public class TodoController {
         todoitem.setIsDone(unsafeTodoModel.getIsDone());
         return todoService.update(todoitem);
     }
-
 
     @DeleteMapping("{id}")
      public ResponseEntity<Boolean> deleteTodoitem( @PathVariable long id){
