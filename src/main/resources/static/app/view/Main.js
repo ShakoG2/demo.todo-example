@@ -13,6 +13,7 @@ Ext.define("SL.view.Main",{
         xtype:"form",
         layout:"hbox",
         margin:30,
+        reference:"form",
         padding:30,
         border:false,
         defaults:{
@@ -21,21 +22,18 @@ Ext.define("SL.view.Main",{
         items:[{
             xtype:"textfield",
             fieldLabel:"Name",
+            name:"name",
+            regex: /^[a-zA-Zა-ჰ]+$/,
             width:300,
-        },{
-            xtype: "datefield",
-            fieldLabel: "Date",
-            width: 300,
-        },{
-            xtype: "checkbox",
-            fieldLabel: "isDode"
         },{
             xtype: "button",
             width:120,
             margin:"0 0 0 30",
-            text:"addCompany",
+            text:"addTask",
+            handler:"addTask"
         }]
     }],
+
     columns:[{
         text:"ID",
         dataIndex:"itemId",
@@ -44,14 +42,6 @@ Ext.define("SL.view.Main",{
         text:"Name",
         dataIndex: "name",
         width:300
-    },{
-        text:"Date",
-        // type:"Date",
-        dataIndex: "createdAt",
-        width:300
-    },{
-        xtype: "checkcolumn",
-        text:"check"
     },{
         xtype: 'actioncolumn',
         text:"deleteItem",

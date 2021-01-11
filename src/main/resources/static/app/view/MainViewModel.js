@@ -7,6 +7,7 @@ Ext.define("SL.view.MainViewModel",{
         todoItems:{
             model: "SL.model.TodoModel",
             autoLoad:true,
+            autoSync: true,
         }
     }
 })

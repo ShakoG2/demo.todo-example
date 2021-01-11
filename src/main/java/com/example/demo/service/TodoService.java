@@ -17,5 +17,5 @@ public interface TodoService  {
 
    TodoModel update(TodoModel todoModel);
 
-   boolean delete(long id);
+   void delete(long id);
 }

@@ -7,13 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Todo_Table_Items")
+@Table(name="Todos")
 public class TodoModel {
 
     @Id
@@ -22,13 +22,6 @@ public class TodoModel {
     private Long itemId;
 
     @Column(name="Name",nullable = false)
-    private String Name;
-
-    @Column(name="Done",nullable = false)
-    private Boolean IsDone = false;
-
-    @Column(name="Date")
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private Date CreatedAt = new Date();
+    private String name;
 
 }

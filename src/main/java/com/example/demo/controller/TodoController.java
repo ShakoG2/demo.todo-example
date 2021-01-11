@@ -35,13 +35,13 @@ public class TodoController {
     public TodoModel updateTodoitem(@PathVariable long id,@RequestBody TodoModel unsafeTodoModel){
         TodoModel todoitem=todoService.get(id);
         todoitem.setName(unsafeTodoModel.getName());
-        todoitem.setIsDone(unsafeTodoModel.getIsDone());
         return todoService.update(todoitem);
     }
 
     @DeleteMapping("{id}")
-     public ResponseEntity<Boolean> deleteTodoitem( @PathVariable long id){
-        return ResponseEntity.ok(todoService.delete(id));
+     public ResponseEntity <Void> deleteTodoitem( @PathVariable long id){
+        todoService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
 

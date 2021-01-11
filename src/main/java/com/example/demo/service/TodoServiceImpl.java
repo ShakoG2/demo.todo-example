@@ -25,22 +25,21 @@ public  class TodoServiceImpl implements TodoService {
         String msg = String.format("TodoItem with id: %d Not Found", id);
         return todoRepository.findById(id).orElseThrow(() -> new TodoException(msg));
     }
+
     @Override
      public TodoModel add(TodoModel todoModel){
       return todoRepository.save(todoModel);
     }
+
     @Override
     public TodoModel update(TodoModel todoModel){
         return todoRepository.save(todoModel);
     }
+
     @Override
-    public boolean delete(long id){
-        TodoModel todoModel=todoRepository.findById(id).orElse(null);
-        if (todoModel.getIsDone()!=false) {
-            todoRepository.delete(todoModel);
-//            return true;
-        }
-        return false;
+    public void delete(long id){
+        get(id);
+        todoRepository.deleteById(id);
     }
 
 }
