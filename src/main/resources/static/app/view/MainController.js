@@ -19,5 +19,16 @@ Ext.define("SL.view.MainController",{
         const store=me.getViewModel().getStore("todoItems");
         const task=Ext.create("SL.model.TodoModel",value);
         store.add(task);
+        form.reset();
+    },
+    search:function (){
+
+       const form=this.lookup("searchForm");
+       const store=this.getViewModel().getStore("todoItems");
+
+        store.load({
+            params: this.lookup('searchForm').getValues(),
+        });
+
     }
 })

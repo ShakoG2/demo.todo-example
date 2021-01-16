@@ -32,11 +32,29 @@ Ext.define("SL.view.Main",{
             text:"addTask",
             handler:"addTask"
         }]
+    },{
+        xtype: "form",
+        layout: "hbox",
+        reference: "searchForm",
+        border: false,
+        items: [{
+            xtype: "textfield",
+            fieldLabel:"Search Task",
+            labelAlign: "right",
+            name:"name",
+            reference: "searchField",
+        },{
+            xtype:"button",
+            handler: "search",
+            text:"search",
+            width:120,
+            margin:"0 0 0 30",
+        }]
     }],
 
     columns:[{
         text:"ID",
-        dataIndex:"itemId",
+        dataIndex:"id",
         width:50
     },{
         text:"Name",
